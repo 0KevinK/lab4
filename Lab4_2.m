@@ -45,7 +45,7 @@ for k = [1:40]
     O2 = grader(k,2);
 
     x = 4*cosd(O1) + 3*cosd(O1+O2);
-    y = 4*sind(O1)+3*sind(O1+O2);
+    y = 4*sind(O1) + 3*sind(O1+O2);
 
     xyvarden = [xyvarden; x y];
 end
