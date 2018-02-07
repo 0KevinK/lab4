@@ -16,24 +16,24 @@ tvaNoll = hHH*(fk(-1)/2 + fk(1)/2);
 
 % Richardsonextrapolation
 % a3)
-Fs = nollFem + (nollFem-ettNoll)/((2^9)-1);
+Fs = nollFem + (nollFem-ettNoll)/((2^2)-1);
 
 % Test av feltermer
-val_ett = nollFem;
+val_one = nollFem;
 val_two = ettNoll;
 val_three = tvaNoll;
 val_korr = (10*sqrt(5)/3)-2*sqrt(3);
 
-err_ett = abs(val_korr - val_ett)
-err_two = abs(val_korr - val_two)
-err_three = abs(val_korr - val_three)
-err_rich = abs(val_korr - Fs)
+err_one = abs(val_korr - val_one);
+err_two = abs(val_korr - val_two);
+err_three = abs(val_korr - val_three);
+err_rich = abs(val_korr - Fs);
 
-y_val = [err_ett err_two err_three err_rich];
-x_val = [h hH hHH hHH];
+y_val = [err_one err_two err_three];
+x_val = [h hH hHH];
 
 loglog(x_val, y_val);
 hold on
-plot(h, err_ett, '*', hH, err_two, '+', hHH, err_three, 'x', h, err_rich, 'd');
+plot(h, err_one, '*', hH, err_two, '+', hHH, err_three, 'x', h, err_rich, 'd');
 
 % b)
