@@ -45,7 +45,7 @@ hold on
 
 appr = 2*pi*sqrt(L/g);
 
-rel_err = T./appr
+rel_err = (abs(T-appr))/T;
 
 plot(fi, rel_err);
 
