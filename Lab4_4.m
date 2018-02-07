@@ -34,6 +34,6 @@ x_val = [h hH hHH];
 
 loglog(x_val, y_val);
 hold on
-plot(h, err_one, '*', hH, err_two, '+', hHH, err_three, 'x', h, err_rich, 'd');
+plot(h, err_one, '*', hH, err_two, '+', hHH, err_three, 'x', hHH, err_rich, 'd');
 
 % b)
