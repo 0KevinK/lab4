@@ -84,20 +84,13 @@ for z=1:2
     for n=3:length(eN)
         xKvotN(n,z) = abs((xNewton(n,z)-xNewton(n-1,z))/(xNewton(n-1,z)-xNewton(n-2,z)));
     end
+   disp('   x                   dx                  abs(e)              abs(e(i)/e(i-1))   abs((x(i)-x(i-1))/(x(i-1)-x(i-2))')
+   tabellN = [xNewton(1:k,z), dxNewton(1:k,z), eN(1:k,z),eKvotN(1:k,z),xKvotN(1:k,z) ];
+   disp(tabellN)
+   disp('Antalet iterationer för ovanstående rot (Newton):')
+   disp(iterN(z))
 end
-disp('Rot 1 med Newtons metod')
-disp('   x                   dx                  abs(e)              abs(e(i)/e(i-1))   abs((x(i)-x(i-1))/(x(i-1)-x(i-2))')
-tabellN1 = [xNewton(:,1), dxNewton(:,1), eN(:,1),eKvotN(:,1),xKvotN(:,1) ];
-disp(tabellN1)
-disp('Antalet iterationer för rot 1:')
-disp(iterN(1))
 
-disp('Rot 2 med Newtons metod')
-tabellN2 = [xNewton(:,2), dxNewton(:,2), eN(:,2), eKvotN(:,2), xKvotN(:,2)];
-disp('   x                   dx                  abs(e)              abs(e(i)/e(i-1))   abs((x(i)-x(i-1))/(x(i-1)-x(i-2))')
-disp(tabellN2)
-disp('Antalet iterationer för rot 2(Newton):')
-disp(iterN(2))
 
 for z =1:2
     k = find(xFix(:,z),1,'last');
@@ -110,23 +103,12 @@ for z =1:2
     for n=3:k
         xKvotF(n,z) = abs((xFix(n,z)-xFix(n-1,z))/(xFix(n-1,z)-xFix(n-2,z)));
     end
+    disp('   x                   dx                  abs(e)              abs(e(i)/e(i-1))   abs((x(i)-x(i-1))/(x(i-1)-x(i-2))')
+   tabellF = [xFix(1:k,z), dxFix(1:k,z),eF(1:k,z),eKvotF(1:k,z),xKvotF(1:k,z)]; 
+   disp(tabellF)
+   disp('Antalet iterationer för ovanstående rot(Fixpunkt):')
+   disp(iterFix(z))
 end
-
-r = 15; % rader för fixpunktstabell
-disp('Rot 2 med Fixpunktsmetoden')
-disp('   x                   dx                  abs(e)              abs(e(i)/e(i-1))   abs((x(i)-x(i-1))/(x(i-1)-x(i-2))')
-tabellF1 = [xFix(1:r,1), dxFix(1:r,1),eF(1:r,1),eKvotF(1:r,1),xKvotF(1:r,1)]; 
-disp(tabellF1)
-disp('Antalet iterationer för rot 2(Fixpunkt):')
-disp(iterFix(1))
-
-disp('Rot 3 med Fixpunktsmetoden')
-disp('   x                   dx                  abs(e)              abs(e(i)/e(i-1))   abs((x(i)-x(i-1))/(x(i-1)-x(i-2))')
-tabellF2 = [xFix(1:r,2), dxFix(1:r,2),eF(1:r,2),eKvotF(1:r,2),xKvotF(1:r,2)];
-disp(tabellF2)
-disp('Antalet iterationer för rot 3:')
-disp(iterFix(2))
-
 
 
 
