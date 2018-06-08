@@ -25,13 +25,18 @@ err_one = abs(val_korr - val_one);
 err_two = abs(val_korr - val_two);
 err_three = abs(val_korr - val_three);
 err_rich = abs(val_korr - Fs);
-% err_rich2 = abs(val_korr - Fs2);
-
+figure(1);
+plot([h hH hHH], [err_one err_two err_three]);
+hold on
+err_rich2 = abs(val_korr - Fs2);
 y_val = [err_rich err_rich2];
 x_val = [h hHH];
+figure(2);
 loglog(x_val, y_val);
-fk = @ (x) (x^4);
-xsq = [fk(0) fk(2)];
-% loglog(x_val, [err_rich err_three])
 hold on
-loglog(x_val, xsq);
+plot(x_val, x_val.^4);
+% hold on
+% fk = @ (x) (x^4);
+% xsq = [fk(0) fk(2)];
+% % loglog(x_val, [err_rich err_three])
+% loglog(x_val, xsq);
